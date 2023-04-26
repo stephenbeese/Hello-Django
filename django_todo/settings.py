@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 
-if os.path.isfile('env.py'):
+if os.path.isfile("env.py"):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'django_todo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['todo/templates/todo'],
+        'DIRS': ['todo/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': os.environ.get('DATABASE_URL')
     # 'default': 'postgres://foatextmcilasi:dd48efccc0a4bb9f18b058dadd927eec3f957e25db430618ea890fbe9b2831ee@ec2-44-215-1-253.compute-1.amazonaws.com:5432/d71c87ssiog8r2'
 }
 
