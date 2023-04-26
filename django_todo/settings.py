@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ycrtg%sjo(t1%wm$_87#u
 DEBUG = True
 
 # ALLOWED_HOSTS = ['ckz91234-hello-django-todo-app.herokuapp.com', 'localhost']
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME'), 'localhost']
     # 'ckz91234-hello-django-todo-app.herokuapp.com']
 
 
