@@ -25,12 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ycrtg%sjo(t1%wm$_87#uk*a5!m$l1ho9b7%b29opc07fow0i&'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ycrtg%sjo(t1%wm$_87#uk*a5!m$l1ho9b7%b29opc07fow0i&')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ckz91234-hello-django-todo-app.herokuapp.com']
+# ALLOWED_HOSTS = ['ckz91234-hello-django-todo-app.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+    # 'ckz91234-hello-django-todo-app.herokuapp.com']
 
 
 # Application definition
@@ -60,7 +62,8 @@ ROOT_URLCONF = 'django_todo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['todo/templates'],
+        'DIRS': [],
+        # 'DIRS': ['todo/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +90,8 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default':  dj_database_url.parse('postgres://accoxupm:bVX7Dl2gb9hXOQaXK89-ElbBvt3AaKY7@rogue.db.elephantsql.com/accoxupm')
+    # 'default':  dj_database_url.parse('postgres://accoxupm:bVX7Dl2gb9hXOQaXK89-ElbBvt3AaKY7@rogue.db.elephantsql.com/accoxupm')
+    'default':  dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 # Password validation
